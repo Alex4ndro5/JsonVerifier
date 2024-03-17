@@ -3,6 +3,8 @@ package org.alex4ndo5;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.alex4ndo5.DTOs.IAMRolePolicy;
 import org.alex4ndo5.DTOs.Statement;
+import org.alex4ndo5.Exceptions.EmptyFileException;
+import org.alex4ndo5.Exceptions.NoFileException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,7 +33,7 @@ public class JsonVerifier {
      * @param jsonPath The path to the JSON file.
      * @return An IAMRolePolicy object representing the content of the JSON file, or null if an error occurs.
      */
-    public IAMRolePolicy readJsonToObject(String jsonPath){
+    public IAMRolePolicy readJsonToObject(String jsonPath)  {
         // Check if jsonPath is null
         if (jsonPath == null) {
             throw new IllegalArgumentException("JSON file path is null.");
@@ -39,6 +41,14 @@ public class JsonVerifier {
 
         // Create a File object for the JSON file
         File jsonFile = new File(jsonPath);
+
+        if (!jsonFile.exists()){
+            throw new NoFileException("JSON file not found");
+        }
+
+        if (jsonFile.length() == 0){
+            throw new EmptyFileException("JSON file is empty");
+        }
 
         // ObjectMapper instance for JSON parsing
         ObjectMapper objectMapper = new ObjectMapper();
