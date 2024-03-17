@@ -1,4 +1,4 @@
-package org.alex4ndo5;
+package org.alex4ndo5.DTOs;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
