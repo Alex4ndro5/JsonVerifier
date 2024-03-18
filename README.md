@@ -1,5 +1,5 @@
 # JsonVerifier
-The project was made using Java 8 and Maven for the first stage of the recruitment process for Remitly Internship 2024. The program accepts the AWS::IAM::Role Policy JSON file, maps it to an object, checks if an input JSON Resource field contains a single asterisk, and logs the answer. The method that returns logical false if an input JSON Resource field contains a single asterisk and true in any other case is named checkResource() and is located in the JsonVerifier class.
+The project was made using Java 8 and Maven for the first stage of the recruitment process for Remitly Internship 2024. The program accepts the AWS::IAM::Role Policy JSON file, maps it to an object, checks if an input JSON Resource field contains a single asterisk, and logs the answer. The method that returns logical false if an input JSON Resource field contains a single asterisk and true in any other case is named checkResource(IAMRolePolicy policy) and is located in the JsonVerifier class.
 
 ## Table of Contents
 - [Installation](#installation)
